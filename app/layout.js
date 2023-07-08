@@ -1,9 +1,8 @@
 
 import './globals.css'
 import { Inter } from 'next/font/google'
-import { useState, useEffect } from "react"
-import Coin from "./component/Coin";
-import SearchCoin from "./component/SearchCoin";
+;
+import Coindata from './component/Coindata';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -13,23 +12,13 @@ export const metadata = {
 }
 
 export default function RootLayout({ children }) {
-  const [getCoins, setCoins] = useState([]);
-  useEffect(()=>{
-    const getdata = async ()=>{
-  const response = await fetch('/api/coins')
-  const coinData = await response.json()
-  setCoins(coinData.data.coins)
-    }
-    getdata()
-  },[])
+ 
   return (
     <html lang="en">
       <body className={inter.className}>
      
         {children}
-        <SearchCoin getSearchResults={(result)=> setCoins(result)}/>
-   <Coin coins = {getCoins}/>
-        
+     <Coindata/>
         </body>
     </html>
   )
