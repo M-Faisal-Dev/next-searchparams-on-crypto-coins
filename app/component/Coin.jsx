@@ -1,4 +1,6 @@
+import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 function Coin({ coins }) {
   return (
     <div className="bg-black">
@@ -10,7 +12,8 @@ function Coin({ coins }) {
               <div key={coin.name} className="lg:w-1/5 xl:w-1/6 md:w-1/4 sm:w-1/3 p-4 m-2 w-full flex flex-col items-center shadow-md justify-center hover:shadow-md hover:shadow-red-600 bg-slate-900">
                 <Link href={coin.coinrankingUrl}>
                   <div className="block relative rounded overflow-hidden">
-                    <img alt="Coin" className="block" src={coin.iconUrl} />
+                  <Image src={coin.iconUrl} width={500} height={300} alt="cdn.coinranking.com" />
+
                       
                   </div>
                   <div className="mt-4 flex flex-col items-center">
